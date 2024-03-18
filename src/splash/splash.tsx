@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native';
+import { Image, View, StyleSheet } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import { useEffect } from 'react';
 import { isLogin } from '../local_storage/storage_manager';
@@ -25,10 +25,27 @@ const SplashScreen = () => {
       }, []);
 
     return (
-        <View>
-            <Text>Hello World!!!</Text>
-        </View>
+        <View style={styles.container}>
+            <Image
+                source={require('../../assets/react_logo.png')}
+                style={styles.logo}
+                resizeMode="contain"
+            />
+      </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#ffffff', // Set your background color
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    logo: {
+      width: 200, // Adjust the width and height of the logo as needed
+      height: 200,
+    },
+  });
 
 export default SplashScreen;
